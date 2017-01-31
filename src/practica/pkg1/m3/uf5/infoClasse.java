@@ -7,34 +7,34 @@ import java.lang.reflect.Method;
 
 
 public class infoClasse <T>{
-   private T t;
+   private T t1;
     
     public infoClasse(T t1){
-        this.t = t1;
+        this.t1 = t1;
     }
     
     public String nomSuperClasse (){
-        return t.getClass().getSuperclass().getSimpleName();
+        return t1.getClass().getSuperclass().getSimpleName();
     }
     
     // nom de la classe complet.
     public String nomClasseComplet (){
-        return t.getClass().getCanonicalName();
+        return t1.getClass().getCanonicalName();
     }
     
     // només el nom de la classe.
     public String nomClasse(){
-        return t.getClass().getSimpleName();
+        return t1.getClass().getSimpleName();
     }
     
     // array d'atributs (Field).
     public Field[] arrayAtributs(){
-        return t.getClass().getDeclaredFields();
+        return t1.getClass().getDeclaredFields();
     }
  
     // array de mètodes (Method).
     public Method[] arrayMetodes(){
-        return t.getClass().getDeclaredMethods();
+        return t1.getClass().getDeclaredMethods();
     }
     
     // array dels noms dels atributs.
@@ -80,18 +80,18 @@ public class infoClasse <T>{
     // modificar el valor d'un atribut.
     public void modificarValorAtribut(Field atribut, Object nouValor) throws IllegalArgumentException, IllegalAccessException {
         atribut.setAccessible(true);
-        atribut.set(t, nouValor);
+        atribut.set(t1, nouValor);
     }
     
     // executar un dels seus mètodes.
     public void executarMetodes(Method metode) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         metode.setAccessible(true);
-        metode.invoke(t, null);
+        metode.invoke(t1, null);
     }
     
     // crear una instància.
     public Object crearInstancia() throws InstantiationException, IllegalAccessException {
-        return t.getClass().newInstance();
+        return t1.getClass().newInstance();
     }
     
     // crear objecte clonat.
