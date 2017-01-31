@@ -7,34 +7,34 @@ import java.lang.reflect.Method;
 
 
 public class infoClasse <T>{
-   private T e;
+   private T t;
     
-    public infoClasse(T e){
-        this.e = e;
+    public infoClasse(T t1){
+        this.t = t1;
     }
     
     public String nomSuperClasse (){
-        return e.getClass().getSuperclass().getSimpleName();
+        return t.getClass().getSuperclass().getSimpleName();
     }
     
     // nom de la classe complet.
     public String nomClasseComplet (){
-        return e.getClass().getCanonicalName();
+        return t.getClass().getCanonicalName();
     }
     
     // només el nom de la classe.
     public String nomClasse(){
-        return e.getClass().getSimpleName();
+        return t.getClass().getSimpleName();
     }
     
     // array d'atributs (Field).
     public Field[] arrayAtributs(){
-        return e.getClass().getDeclaredFields();
+        return t.getClass().getDeclaredFields();
     }
  
     // array de mètodes (Method).
     public Method[] arrayMetodes(){
-        return e.getClass().getDeclaredMethods();
+        return t.getClass().getDeclaredMethods();
     }
     
     // array dels noms dels atributs.
@@ -80,25 +80,25 @@ public class infoClasse <T>{
     // modificar el valor d'un atribut.
     public void modificarValorAtribut(Field atribut, Object nouValor) throws IllegalArgumentException, IllegalAccessException {
         atribut.setAccessible(true);
-        atribut.set(e, nouValor);
+        atribut.set(t, nouValor);
     }
     
     // executar un dels seus mètodes.
     public void executarMetodes(Method metode) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         metode.setAccessible(true);
-        metode.invoke(e, null);
+        metode.invoke(t, null);
     }
     
     // crear una instància.
     public T crearInstancia() throws InstantiationException, IllegalAccessException {
-        return (T) e.getClass().newInstance();
+        return (T) t.getClass().newInstance();
     }
     
     // crear objecte clonat.
-    @Override
-    public T clone() throws CloneNotSupportedException {
-        return new T(e.getNum(), e.getCad());
-    }
-    
+//    @Override
+//    public T clone() throws CloneNotSupportedException {
+//        return new T(t.getNum(), t.getCad());
+//    }
+//    
 
 }
