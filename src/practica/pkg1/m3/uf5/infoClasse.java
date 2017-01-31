@@ -96,7 +96,7 @@ public class infoClasse <T>{
     
     // crear objecte clonat.
 //    @Override
-//    protected Object clone() throws CloneNotSupportedException {
+//    public Object clone() throws CloneNotSupportedException {
 //        return new T(t.getNum(), t.getCad());
 //    }
     
