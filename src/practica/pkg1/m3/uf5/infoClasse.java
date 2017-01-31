@@ -6,10 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
-public class infoClasse {
-   private Element e;
+public class infoClasse <T>{
+   private T e;
     
-    public infoClasse(Element e){
+    public infoClasse(T e){
         this.e = e;
     }
     
@@ -90,14 +90,14 @@ public class infoClasse {
     }
     
     // crear una instància.
-    public Element crearInstancia() throws InstantiationException, IllegalAccessException {
-        return e.getClass().newInstance();
+    public T crearInstancia() throws InstantiationException, IllegalAccessException {
+        return (T) e.getClass().newInstance();
     }
     
     // crear objecte clonat.
     @Override
-    public Element clone() throws CloneNotSupportedException {
-        return new Element(e.getNum(), e.getCad());
+    public T clone() throws CloneNotSupportedException {
+        return new T(e.getNum(), e.getCad());
     }
     
 
