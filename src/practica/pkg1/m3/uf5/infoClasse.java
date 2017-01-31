@@ -90,15 +90,15 @@ public class infoClasse <T>{
     }
     
     // crear una instància.
-    public T crearInstancia() throws InstantiationException, IllegalAccessException {
-        return (T) t.getClass().newInstance();
+    public Object crearInstancia() throws InstantiationException, IllegalAccessException {
+        return t.getClass().newInstance();
     }
     
     // crear objecte clonat.
 //    @Override
-//    public T clone() throws CloneNotSupportedException {
+//    protected Object clone() throws CloneNotSupportedException {
 //        return new T(t.getNum(), t.getCad());
 //    }
-//    
+    
 
 }
