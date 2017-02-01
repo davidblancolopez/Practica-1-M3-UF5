@@ -7,9 +7,9 @@ import java.lang.reflect.Method;
 
 
 public class infoClasse <T>{
-   private T t1;
+   private Class<T> t1;
     
-    public infoClasse(T t1){
+    public infoClasse(Class<T> t1){
         this.t1 = t1;
     }
     
