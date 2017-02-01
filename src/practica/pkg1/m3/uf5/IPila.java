@@ -26,8 +26,8 @@ public interface IPila<T> {
         
     }
     
-    public T mida(){
-        
+    public int T mida(){
+        return llista.size();
     }
     
     public T toArray(){
