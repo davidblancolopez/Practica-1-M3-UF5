@@ -21,4 +21,8 @@ public interface IPila<T> {
         }
         return t;
     }
+    
+    public T buidar(){
+        
+    }
 }
