@@ -13,4 +13,6 @@ public interface IPila<T> {
     public int mida();
     
     public void toArray();
+    
+    
 }
