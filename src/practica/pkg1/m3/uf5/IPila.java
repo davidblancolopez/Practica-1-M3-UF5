@@ -1,12 +1,10 @@
-
 package practica.pkg1.m3.uf5;
 
 import java.util.ArrayList;
 
+public interface IPila<T> {
 
-public interface IPila <T>{
-   
-   private ArrayList <T> llista;
+    private ArrayList<T> llista;
 
     public IPila() {
         llista = new ArrayList<>();
