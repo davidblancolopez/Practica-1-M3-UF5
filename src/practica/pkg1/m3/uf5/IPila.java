@@ -25,4 +25,12 @@ public interface IPila<T> {
     public T buidar(){
         
     }
+    
+    public T mida(){
+        
+    }
+    
+    public T toArray(){
+        
+    }
 }
