@@ -30,7 +30,7 @@ public interface IPila<T> {
         return llista.size();
     }
     
-    public T toArray(){
+    public T[] toArray(){
         
     }
 }
