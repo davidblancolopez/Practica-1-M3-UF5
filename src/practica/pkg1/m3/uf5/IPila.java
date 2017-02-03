@@ -12,7 +12,7 @@ public interface IPila<T> {
     
     public int mida();
     
-    public void toArray();
+    public T[] toArray(Class<T> t);
     
     /**
      * private ArrayList <T> llista;
