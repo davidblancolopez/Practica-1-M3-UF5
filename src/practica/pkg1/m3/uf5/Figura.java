@@ -1,6 +1,6 @@
 package practica.pkg1.m3.uf5;
 
-public abstract class Figura {
+public abstract class Figura implements Comparable<Figura>{
 
     private String nom;
 
