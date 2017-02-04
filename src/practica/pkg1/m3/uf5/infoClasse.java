@@ -9,35 +9,58 @@ import java.lang.reflect.Method;
 public class infoClasse <T>{
    private Class<T> t1;
     
+   /**
+    * Constructor de la clase.
+    * @param t1 
+    */
     public infoClasse(Class<T> t1){
         this.t1 = t1;
     }
     
+    /**
+     * Metode que retorna el nom de la superclase.
+     * @return 
+     */
     public String nomSuperClasse (){
         return t1.getClass().getSuperclass().getSimpleName();
     }
     
-    // nom de la classe complet.
+    /**
+     * Metode que retorna el nom de la clase complet.
+     * @return 
+     */
     public String nomClasseComplet (){
         return t1.getClass().getCanonicalName();
     }
     
-    // només el nom de la classe.
+    /**
+     * Metode que retorna el nom de la clase.
+     * @return 
+     */
     public String nomClasse(){
         return t1.getClass().getSimpleName();
     }
     
-    // array d'atributs (Field).
+    /**
+     * Metode que retorna un array d'atributs.
+     * @return 
+     */
     public Field[] arrayAtributs(){
         return t1.getClass().getDeclaredFields();
     }
  
-    // array de mètodes (Method).
+    /**
+     * Metode que retorna un array de metodes.
+     * @return 
+     */
     public Method[] arrayMetodes(){
         return t1.getClass().getDeclaredMethods();
     }
     
-    // array dels noms dels atributs.
+    /**
+     * Metode que retorna un array d'atributs.
+     * @return 
+     */
     public String[] arrayNomsAtributs(){
         String[] nomAtributs = new String[arrayAtributs().length];
         Field[] att = arrayAtributs();
@@ -47,7 +70,10 @@ public class infoClasse <T>{
         return nomAtributs;
     }
     
-    // array dels noms dels mètodes.
+    /**
+     * Metode que retorna un array amb els noms dels metodes.
+     * @return 
+     */
     public String[] arrayNomsMetodes(){
         String[] nomMetodes = new String[arrayMetodes().length];
         Method[] meth = arrayMetodes();
@@ -57,12 +83,24 @@ public class infoClasse <T>{
         return nomMetodes;
     }
     
-    // crear una instància.
+    /**
+     * Metode que crea una instancia del tipus generica.
+     * @return
+     * @throws InstantiationException
+     * @throws IllegalAccessException 
+     */
     public Object crearInstancia() throws InstantiationException, IllegalAccessException {
         return t1.getClass().newInstance();
     }
     
-    // crear objecte clonat.
-    
+    /**
+     * Metode que crea un clon de l'objecte. 
+     * @return
+     * @throws CloneNotSupportedException 
+     */
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
 }
