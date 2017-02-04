@@ -3,7 +3,7 @@ package practica.pkg1.m3.uf5;
 import java.lang.reflect.Array;
 
 
-public class PilaGenerica<T> implements IPila {
+public class PilaGenerica<T> implements IPila<T> {
 
     private Node node = null;
     private int mida = 0;
