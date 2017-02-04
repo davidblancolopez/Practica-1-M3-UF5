@@ -1,76 +1,64 @@
-
 package practica.pkg1.m3.uf5;
 
-import java.util.ArrayList;
+import java.lang.reflect.Array;
 
 
-public class PilaGenerica implements IPila{
+public class PilaGenerica<T> implements IPila {
 
-    private ArrayList <T> llista;
+    private Node node = null;
+    private int mida = 0;
+
     @Override
-    public void afegir(Object t) {
-        llista.add(t);
+    public void afegir(T t) {
+        node = new Node(node, t);
+        mida++;
     }
 
     @Override
-    public Object treure() {
-        T t = null;
-        if (!llista.isEmpty()) {
-            t = llista.remove(llista.size() - 1);
-        }
-        return t;
+    public T treure() {
+        T valor = null;
+        if (node != null) {
+            valor = (T) node.t;
+            node = node.pare;       
+            mida--;
+        } 
+        return valor;
     }
 
     @Override
     public void buidar() {
-        
+        node = null;
+        mida = 0;
     }
 
     @Override
     public int mida() {
-        
+        return mida;
     }
 
     @Override
-    public Object[] toArray(Class t) {
-        
-    }
-    
-     /**
-     * 
-
-    public Pila() {
-        llista = new ArrayList<>();
-    }
-
-    public void afegir(T t) {
-        llista.add(t);
-    }
-
-    public T treure() {
-        T t = null;
-        if (!llista.isEmpty()) {
-            t = llista.remove(llista.size() - 1);
+    public T[] toArray(Class t) {
+         T[] llista = (T[]) Array.newInstance(t, mida);
+        int x = mida; 
+        Node aux = node;        
+        while(aux != null){
+            llista[--x] = (T) aux.t;
+            aux = aux.pare;
         }
-        return t;
+        return llista;
     }
 
-    public T[] arrayPila() {
-        return isEmpty()?null:(T[]) llista.toArray();
-    }
+
     
-    public boolean isEmpty(){
-        return llista.isEmpty();
-    }
-     */
     
-    private class Node{
+    private class Node {
+
         Node pare;
-        int valor;
-        
-        Node(Node pare, int valor){
+        T t;
+
+        Node(Node pare, T t) {
             this.pare = pare;
-            this.valor = valor;
+            this.t = t;
         }
     }
 }
