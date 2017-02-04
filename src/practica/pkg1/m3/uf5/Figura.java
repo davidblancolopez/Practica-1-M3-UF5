@@ -8,8 +8,8 @@ public abstract class Figura {
         this.nom = nom;
     }
 
-    public Figura(){
-        
+    public Figura() {
+
     }
 
     public String getNom() {
@@ -23,4 +23,16 @@ public abstract class Figura {
     public abstract double area();
 
     public abstract double perimetre();
+
+    @Override
+    public int compareTo(Figura o) {
+        double areaObjecteActual = this.area(), areaObjecteParametre = o.area();
+        return areaObjecteActual > areaObjecteParametre ? 1
+                : areaObjecteActual == areaObjecteParametre ? 0 : -1;
+    }
+
+    @Override
+    public String toString() {
+        return "Figura{" + "nom=" + nom + '}';
+    }
 }
